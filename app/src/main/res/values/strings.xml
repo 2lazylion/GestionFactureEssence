@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gestionnaire de factures d\'essence</string>
+    <string name="entrezMontant">Entrez le montant de la facture:</string>
+    <string name="sauvegarder">Sauvegarder</string>
+    <string name="rechercher">Rechercher une facture</string>
+    <string name="montantCurrency">00.00$</string>
+    <string name="rechercheFactures">Recherche de factures</string>
+    <string name="choisieDate">Choissisez une date:</string>
+    <string name="confirmer">Confirmer</string>
+    <string name="listeFacture">Liste des factures:</string>
+    <string name="total">Total pour la journée:</string>
+</resources>
