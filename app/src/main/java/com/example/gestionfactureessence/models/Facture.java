@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Facture {
     private int id;
     private double montant;
-    private Date dateFacture;
+    private String dateFacture;
 
 
 
@@ -16,8 +16,12 @@ public class Facture {
     public Facture(double montant) {
         this.montant = montant;
     }
+    public Facture(double montant, String dateFacture) {
+        this.montant = montant;
+        this.dateFacture = dateFacture;
+    }
 
-    public Facture(int id, double montant, Date dateFacture) {
+    public Facture(int id, double montant, String dateFacture) {
         this.id = id;
         this.montant = montant;
         this.dateFacture = dateFacture;
@@ -39,11 +43,11 @@ public class Facture {
         this.montant = montant;
     }
 
-    public Date getDateFacture() {
+    public String getDateFacture() {
         return dateFacture;
     }
 
-    public void setDateFacture(Date dateFacture) {
+    public void setDateFacture(String dateFacture) {
         this.dateFacture = dateFacture;
     }
 

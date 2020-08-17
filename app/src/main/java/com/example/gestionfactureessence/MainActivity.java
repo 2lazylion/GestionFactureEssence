@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvEntrezMontant;
     private EditText txtMontant;
     private Button btnSauvegarder, btnRechercher;
-    private Intent IntentRecherche;
+    private Intent intentRecherche;
     private DBAdapter dbAdapter;
 
     @Override
@@ -69,22 +69,28 @@ public class MainActivity extends AppCompatActivity {
         double montant = Double.parseDouble(txtMontant.getText().toString());
 
         // inserer la date d'aujourd'hui ici ou bd?
-        //Calendar today = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        String today = String.valueOf(day) + "/" + String.valueOf(month + 1) + "/" + String.valueOf(year);
 
         // sauvegarde dans la bd le montant avec la date
-        dbAdapter.insererEnrergistrement(new Facture(montant));
+        dbAdapter.insererEnrergistrement(new Facture(montant, today));
 
         //TODO: afficher sauvegarde si on a un resultat de la bd sinon, erreur
         String message = "Sauvegardé";
         Toast.makeText(MainActivity.this,message, Toast.LENGTH_LONG).show();
+        txtMontant.setText("");
     }
 
     private void onRechercher(View v) {
         // cree le "Intent" pour aller a l'activite RechercheActivity
-        IntentRecherche = new Intent(MainActivity.this, RechercheActivity.class);
+        intentRecherche = new Intent(MainActivity.this, RechercheActivity.class);
 
         // demarre le Intent
-        startActivity(IntentRecherche);
+        startActivity(intentRecherche);
     }
 
 }

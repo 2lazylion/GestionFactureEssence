@@ -3,6 +3,7 @@ package com.example.gestionfactureessence.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -13,8 +14,8 @@ public class DBFactureHelper extends SQLiteOpenHelper {
     public static final String COL_DATE = "dateFacture";
     public static final String COL_MONTANT = "montant";
     public static final String DDL_CREATE_FACTURE = "CREATE TABLE " + TABLE_1 + "(" +
-            COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " + COL_DATE + " date default CURRENT_DATE," +
-            COL_MONTANT + " real)";
+            COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " + COL_DATE + " TEXT," +
+            COL_MONTANT + " REAL)";
 
     public static final String BD_NOM = "facture";
     public static final int VERSION =1;
@@ -26,14 +27,17 @@ public class DBFactureHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // execute le DDL
+        //TODO: la bd n'est pas cree?
+        Log.v("edward","creation de la bd");
         db.execSQL(DDL_CREATE_FACTURE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // mise a jour
+        //TODO: la bd n'est pas cree ou maj?
         db.execSQL("drop table "+TABLE_1+";");
-
+        Log.v("edward","mise a jour de la bd");
         // cree la db
         onCreate(db);
     }
